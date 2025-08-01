@@ -13,7 +13,7 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className = '', label, error, ...props }, ref) => {
-    const baseStyles = 'w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent';
+    const baseStyles = 'w-full text-gray-900 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent';
     const errorStyles = error ? 'border-red-300 focus:ring-red-500' : '';
     
     return (
@@ -38,7 +38,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ className = '', label, error, options, ...props }, ref) => {
-    const baseStyles = 'w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent';
+    const baseStyles = 'w-full text-gray-900 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent';
     const errorStyles = error ? 'border-red-300 focus:ring-red-500' : '';
     
     return (

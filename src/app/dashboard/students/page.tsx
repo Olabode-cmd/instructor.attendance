@@ -65,9 +65,9 @@ export default function StudentsPage() {
                 <input
                   type="text"
                   placeholder="Search students..."
-                  className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="text-gray-900 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
                 />
-                <select className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-red-500">
+                <select className="text-gray-900 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-red-500">
                   <option>All Classes</option>
                   {classesData.filter(c => c.status === 'active').map(cls => (
                     <option key={cls.id} value={cls.id}>{cls.title}</option>
@@ -76,6 +76,7 @@ export default function StudentsPage() {
               </div>
             </div>
           </div>
+          
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-gray-50">

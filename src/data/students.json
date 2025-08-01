@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "Chinedu Okafor",
+    "name": "John Abe",
     "email": "chinedu.okafor@email.com",
     "phone": "+2348012345678",
     "gender": "Male",
@@ -11,7 +11,7 @@
   },
   {
     "id": "2",
-    "name": "Grace Adebayo",
+    "name": "Grace",
     "email": "grace.adebayo@email.com",
     "phone": "+2348023456789",
     "gender": "Female",
@@ -21,7 +21,7 @@
   },
   {
     "id": "3",
-    "name": "Emmanuel Nwankwo",
+    "name": "Clarence Peters",
     "email": "emmanuel.nwankwo@email.com",
     "phone": "+2348034567890",
     "gender": "Male",
@@ -41,7 +41,7 @@
   },
   {
     "id": "5",
-    "name": "David Okoro",
+    "name": "David Paul",
     "email": "david.okoro@email.com",
     "phone": "+2348056789012",
     "gender": "Male",

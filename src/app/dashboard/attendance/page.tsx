@@ -77,9 +77,10 @@ export default function AttendancePage() {
         </div>
 
         {!isMarkingAttendance ? (
-          /* Class Selection */
-          <div className="bg-white rounded-lg shadow-sm border p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Select Class for Today</h3>
+          <div className="space-y-6">
+            {/* Class Selection */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Select Class for Today</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
               <Select
                 label="Class"
@@ -115,6 +116,46 @@ export default function AttendancePage() {
                 </p>
               </div>
             )}
+            </div>
+
+            {/* Export Attendance */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Export Attendance</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                <Select
+                  label="Select Class/Batch"
+                  value=""
+                  onChange={() => {}}
+                  options={[
+                    { value: '', label: 'Select class to export' },
+                    ...activeClasses.map(cls => ({ value: cls.id, label: cls.title })),
+                    ...classesData.filter(c => c.status === 'completed').map(cls => ({ value: cls.id, label: `${cls.title} (Completed)` }))
+                  ]}
+                />
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-900 mb-1">Date Range</label>
+                  <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <option value="all">All Time</option>
+                    <option value="month">This Month</option>
+                    <option value="week">This Week</option>
+                    <option value="custom">Custom Range</option>
+                  </select>
+                </div>
+                
+                <Button 
+                  variant="outline"
+                  onClick={() => console.log('Export attendance')}
+                  className="h-fit"
+                >
+                  📊 Export to Excel
+                </Button>
+              </div>
+              
+              <div className="mt-4 text-sm text-gray-600">
+                <p>Export attendance records for selected class/batch including student names, dates, and attendance status.</p>
+              </div>
+            </div>
           </div>
         ) : (
           /* Attendance Marking */

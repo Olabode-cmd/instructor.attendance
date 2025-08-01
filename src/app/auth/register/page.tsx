@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import AuthNavbar from '@/components/AuthNavbar';
 import Footer from '@/components/Footer';
+import Button from '@/components/ui/Button';
+import { Input, Select } from '@/components/ui/Input';
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -46,111 +48,75 @@ export default function RegisterPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-900">
-                Full Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                value={formData.name}
-                onChange={handleChange}
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                required
-              />
-            </div>
+            <Input
+              label="Full Name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-900">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                required
-              />
-            </div>
+            <Input
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
 
-            <div>
-              <label htmlFor="pin" className="block text-sm font-medium text-gray-900">
-                4-digit PIN
-              </label>
-              <input
-                id="pin"
-                name="pin"
-                type="password"
-                maxLength={4}
-                value={formData.pin}
-                onChange={handleChange}
-                className="mt-1 w-full px-3 py-2 text-center tracking-widest border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                placeholder="••••"
-                required
-              />
-            </div>
+            <Input
+              label="4-digit PIN"
+              name="pin"
+              type="password"
+              maxLength={4}
+              value={formData.pin}
+              onChange={handleChange}
+              className="tracking-widest"
+              placeholder="••••"
+              required
+            />
 
-            <div>
-              <label htmlFor="confirmPin" className="block text-sm font-medium text-gray-900">
-                Confirm PIN
-              </label>
-              <input
-                id="confirmPin"
-                name="confirmPin"
-                type="password"
-                maxLength={4}
-                value={formData.confirmPin}
-                onChange={handleChange}
-                className="mt-1 w-full px-3 py-2 text-center tracking-widest border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                placeholder="••••"
-                required
-              />
-            </div>
+            <Input
+              label="Confirm PIN"
+              name="confirmPin"
+              type="password"
+              maxLength={4}
+              value={formData.confirmPin}
+              onChange={handleChange}
+              className="tracking-widest"
+              placeholder="••••"
+              required
+            />
 
-            <div>
-              <label htmlFor="securityQuestion" className="block text-sm font-medium text-gray-900">
-                Security Question
-              </label>
-              <select
-                id="securityQuestion"
-                name="securityQuestion"
-                value={formData.securityQuestion}
-                onChange={handleChange}
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                required
-              >
-                <option value="">Select a question</option>
-                <option value="pet">What was your first pet's name?</option>
-                <option value="school">What elementary school did you attend?</option>
-                <option value="city">In what city were you born?</option>
-                <option value="mother">What is your mother's maiden name?</option>
-              </select>
-            </div>
+            <Select
+              label="Security Question"
+              name="securityQuestion"
+              value={formData.securityQuestion}
+              onChange={handleChange}
+              options={[
+                { value: '', label: 'Select a question' },
+                { value: 'pet', label: "What was your first pet's name?" },
+                { value: 'school', label: 'What elementary school did you attend?' },
+                { value: 'city', label: 'In what city were you born?' },
+                { value: 'mother', label: "What is your mother's maiden name?" }
+              ]}
+              required
+            />
 
-            <div>
-              <label htmlFor="securityAnswer" className="block text-sm font-medium text-gray-900">
-                Security Answer
-              </label>
-              <input
-                id="securityAnswer"
-                name="securityAnswer"
-                type="text"
-                value={formData.securityAnswer}
-                onChange={handleChange}
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                required
-              />
-            </div>
+            <Input
+              label="Security Answer"
+              name="securityAnswer"
+              type="text"
+              value={formData.securityAnswer}
+              onChange={handleChange}
+              required
+            />
 
-            <button
-              type="submit"
-              className="w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
-            >
+            <Button type="submit" className="w-full" size="lg">
               Create Profile
-            </button>
+            </Button>
           </form>
 
           <div className="text-center">

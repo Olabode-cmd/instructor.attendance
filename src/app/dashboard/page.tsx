@@ -7,15 +7,12 @@ export default function DashboardPage() {
   const activeClasses = classesData.filter(c => c.status === 'active');
   const completedBatches = classesData.filter(c => c.status === 'completed');
   const totalStudents = studentsData.length;
-  const pendingAssignments = assignmentsData.reduce((acc, assignment) => {
-    return acc + assignment.submissions.filter(s => !s.submitted).length;
-  }, 0);
   const avgAttendance = Math.round(studentsData.reduce((acc, s) => acc + s.attendanceRate, 0) / studentsData.length);
 
   const recentAlerts = [
-    { type: 'warning', message: 'Michael Brown has missed 3 consecutive classes', time: '2 hours ago' },
+    { type: 'warning', message: 'John Eze has missed 3 consecutive classes', time: '2 hours ago' },
     { type: 'info', message: 'Python Basics Quiz due tomorrow', time: '1 day ago' },
-    { type: 'danger', message: 'Emily Davis attendance below 75%', time: '3 days ago' }
+    { type: 'danger', message: 'John Eze attendance below 75%', time: '3 days ago' }
   ];
 
   return (
