@@ -1,8 +1,34 @@
+'use client';
+
+import { useState } from 'react';
 import DashboardLayout from '@/components/DashboardLayout';
+import Button from '@/components/ui/Button';
+import { AddStudentModal } from '@/components/modals';
 import studentsData from '@/data/students.json';
 import classesData from '@/data/classes.json';
 
 export default function StudentsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [students, setStudents] = useState(studentsData);
+
+  const activeClasses = classesData.filter(c => c.status === 'active');
+  const availableClasses = activeClasses.map(cls => ({ value: cls.id, label: cls.title }));
+
+  const handleAddStudent = (data: any) => {
+    const newStudent = {
+      id: (students.length + 1).toString(),
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      gender: data.gender,
+      enrolledClasses: data.enrolledClasses,
+      attendanceRate: 100, // Default for new student
+      assignmentCompletion: 100 // Default for new student
+    };
+
+    setStudents(prev => [...prev, newStudent]);
+    setIsModalOpen(false);
+  };
   const getClassNames = (classIds: string[]) => {
     return classIds.map(id => {
       const cls = classesData.find(c => c.id === id);
@@ -25,16 +51,16 @@ export default function StudentsPage() {
             <h1 className="text-2xl font-bold text-gray-900">Students</h1>
             <p className="text-gray-600">Manage student profiles and enrollment</p>
           </div>
-          <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+          <Button onClick={() => setIsModalOpen(true)}>
             + Add New Student
-          </button>
+          </Button>
         </div>
 
         {/* Students Table */}
         <div className="bg-white rounded-lg shadow-sm border">
           <div className="p-6 border-b border-gray-200">
             <div className="flex justify-between items-center">
-              <h3 className="text-lg font-semibold text-gray-900">All Students ({studentsData.length})</h3>
+              <h3 className="text-lg font-semibold text-gray-900">All Students ({students.length})</h3>
               <div className="flex space-x-2">
                 <input
                   type="text"
@@ -63,7 +89,7 @@ export default function StudentsPage() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {studentsData.map((student) => {
+                {students.map((student) => {
                   const attendanceStatus = getAttendanceStatus(student.attendanceRate);
                   return (
                     <tr key={student.id} className="hover:bg-gray-50">
@@ -125,25 +151,32 @@ export default function StudentsPage() {
           <div className="bg-white p-6 rounded-lg shadow-sm border">
             <h4 className="text-sm font-medium text-gray-500">High Performers</h4>
             <p className="text-2xl font-bold text-green-600">
-              {studentsData.filter(s => s.attendanceRate >= 90).length}
+              {students.filter(s => s.attendanceRate >= 90).length}
             </p>
             <p className="text-sm text-gray-600">90%+ attendance</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-sm border">
             <h4 className="text-sm font-medium text-gray-500">At Risk</h4>
             <p className="text-2xl font-bold text-red-600">
-              {studentsData.filter(s => s.attendanceRate < 75).length}
+              {students.filter(s => s.attendanceRate < 75).length}
             </p>
             <p className="text-sm text-gray-600">Below 75% attendance</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-sm border">
             <h4 className="text-sm font-medium text-gray-500">Average Performance</h4>
             <p className="text-2xl font-bold text-blue-600">
-              {Math.round(studentsData.reduce((acc, s) => acc + s.assignmentCompletion, 0) / studentsData.length)}%
+              {students.length > 0 ? Math.round(students.reduce((acc, s) => acc + s.assignmentCompletion, 0) / students.length) : 0}%
             </p>
             <p className="text-sm text-gray-600">Assignment completion</p>
           </div>
         </div>
+
+        <AddStudentModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onSubmit={handleAddStudent}
+          availableClasses={availableClasses}
+        />
       </div>
     </DashboardLayout>
   );

@@ -5,6 +5,7 @@ import assignmentsData from '@/data/assignments.json';
 
 export default function DashboardPage() {
   const activeClasses = classesData.filter(c => c.status === 'active');
+  const completedBatches = classesData.filter(c => c.status === 'completed');
   const totalStudents = studentsData.length;
   const pendingAssignments = assignmentsData.reduce((acc, assignment) => {
     return acc + assignment.submissions.filter(s => !s.submitted).length;
@@ -42,6 +43,18 @@ export default function DashboardPage() {
 
           <div className="bg-white p-6 rounded-lg shadow-sm border">
             <div className="flex items-center">
+              <div className="p-2 bg-green-100 rounded-lg">
+                <span className="text-2xl">✅</span>
+              </div>
+              <div className="ml-4">
+                <p className="text-sm font-medium text-gray-600">Completed Batches</p>
+                <p className="text-2xl font-bold text-gray-900">{completedBatches.length}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-sm border">
+            <div className="flex items-center">
               <div className="p-2 bg-blue-100 rounded-lg">
                 <span className="text-2xl">👥</span>
               </div>
@@ -54,19 +67,7 @@ export default function DashboardPage() {
 
           <div className="bg-white p-6 rounded-lg shadow-sm border">
             <div className="flex items-center">
-              <div className="p-2 bg-yellow-100 rounded-lg">
-                <span className="text-2xl">📝</span>
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Pending Submissions</p>
-                <p className="text-2xl font-bold text-gray-900">{pendingAssignments}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
-            <div className="flex items-center">
-              <div className="p-2 bg-green-100 rounded-lg">
+              <div className="p-2 bg-purple-100 rounded-lg">
                 <span className="text-2xl">📊</span>
               </div>
               <div className="ml-4">
@@ -89,7 +90,7 @@ export default function DashboardPage() {
                 <div key={cls.id} className="flex items-center justify-between">
                   <div>
                     <p className="font-medium text-gray-900">{cls.title}</p>
-                    <p className="text-sm text-gray-600">{cls.schedule}</p>
+                    <p className="text-sm text-gray-600">{cls.duration} months duration</p>
                   </div>
                   <div className="text-right">
                     <p className="text-sm font-medium text-gray-900">{cls.studentCount} students</p>
@@ -133,14 +134,10 @@ export default function DashboardPage() {
             <h3 className="text-lg font-semibold text-gray-900">Quick Actions</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                 <span className="text-2xl mb-2">📝</span>
                 <span className="text-sm font-medium text-gray-900">Take Attendance</span>
-              </button>
-              <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                <span className="text-2xl mb-2">🎓</span>
-                <span className="text-sm font-medium text-gray-900">Add Assignment</span>
               </button>
               <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                 <span className="text-2xl mb-2">👤</span>

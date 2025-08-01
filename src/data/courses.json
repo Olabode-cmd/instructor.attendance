@@ -1,0 +1,8 @@
+[
+  { "value": "python", "label": "Python Programming" },
+  { "value": "web-dev", "label": "Web Development" },
+  { "value": "data-science", "label": "Data Science" },
+  { "value": "mobile-dev", "label": "Mobile Development" },
+  { "value": "ui-ux", "label": "UI/UX Design" },
+  { "value": "digital-marketing", "label": "Digital Marketing" }
+]

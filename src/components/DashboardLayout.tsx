@@ -10,7 +10,6 @@ const navigation = [
   { name: 'Classes', href: '/dashboard/classes', icon: BookOpen },
   { name: 'Students', href: '/dashboard/students', icon: Users },
   { name: 'Attendance', href: '/dashboard/attendance', icon: ClipboardList },
-  { name: 'Assignments', href: '/dashboard/assignments', icon: GraduationCap },
   { name: 'Analytics', href: '/dashboard/analytics', icon: TrendingUp },
 ];
 
