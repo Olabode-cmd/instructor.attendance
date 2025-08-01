@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "title": "Introduction to Python",
+    "schedule": "Mon, Wed, Fri - 10:00 AM",
+    "startDate": "2024-01-15",
+    "endDate": "2024-05-15",
+    "studentCount": 25,
+    "status": "active"
+  },
+  {
+    "id": "2",
+    "title": "Web Development Fundamentals",
+    "schedule": "Tue, Thu - 2:00 PM",
+    "startDate": "2024-01-16",
+    "endDate": "2024-05-16",
+    "studentCount": 18,
+    "status": "active"
+  },
+  {
+    "id": "3",
+    "title": "Data Structures & Algorithms",
+    "schedule": "Mon, Wed - 3:00 PM",
+    "startDate": "2023-09-01",
+    "endDate": "2023-12-15",
+    "studentCount": 22,
+    "status": "archived"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "name": "Chinedu Okafor",
+    "email": "chinedu.okafor@email.com",
+    "phone": "+2348012345678",
+    "gender": "Male",
+    "enrolledClasses": ["1", "2"],
+    "attendanceRate": 92,
+    "assignmentCompletion": 88
+  },
+  {
+    "id": "2",
+    "name": "Grace Adebayo",
+    "email": "grace.adebayo@email.com",
+    "phone": "+2348023456789",
+    "gender": "Female",
+    "enrolledClasses": ["1"],
+    "attendanceRate": 96,
+    "assignmentCompletion": 94
+  },
+  {
+    "id": "3",
+    "name": "Emmanuel Nwankwo",
+    "email": "emmanuel.nwankwo@email.com",
+    "phone": "+2348034567890",
+    "gender": "Male",
+    "enrolledClasses": ["2"],
+    "attendanceRate": 78,
+    "assignmentCompletion": 82
+  },
+  {
+    "id": "4",
+    "name": "Faith Ogbonna",
+    "email": "faith.ogbonna@email.com",
+    "phone": "+2348045678901",
+    "gender": "Female",
+    "enrolledClasses": ["1", "2"],
+    "attendanceRate": 89,
+    "assignmentCompletion": 91
+  },
+  {
+    "id": "5",
+    "name": "David Okoro",
+    "email": "david.okoro@email.com",
+    "phone": "+2348056789012",
+    "gender": "Male",
+    "enrolledClasses": ["1"],
+    "attendanceRate": 85,
+    "assignmentCompletion": 87
+  },
+  {
+    "id": "6",
+    "name": "Blessing Eze",
+    "email": "blessing.eze@email.com",
+    "phone": "+2348067890123",
+    "gender": "Female",
+    "enrolledClasses": ["2"],
+    "attendanceRate": 91,
+    "assignmentCompletion": 89
+  }
+]

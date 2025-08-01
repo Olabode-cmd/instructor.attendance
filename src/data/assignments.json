@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "Python Basics Quiz",
+    "description": "Basic syntax and data types assessment",
+    "classId": "1",
+    "dueDate": "2024-02-15",
+    "submissions": [
+      { "studentId": "1", "submitted": true, "grade": 85 },
+      { "studentId": "2", "submitted": true, "grade": 92 },
+      { "studentId": "4", "submitted": false, "grade": null }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "HTML/CSS Project",
+    "description": "Create a responsive landing page",
+    "classId": "2",
+    "dueDate": "2024-02-20",
+    "submissions": [
+      { "studentId": "1", "submitted": true, "grade": 88 },
+      { "studentId": "3", "submitted": true, "grade": 76 },
+      { "studentId": "4", "submitted": true, "grade": 94 }
+    ]
+  }
+]
